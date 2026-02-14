@@ -149,7 +149,6 @@ def fetch_dw_top_homepage(count=10):
     return items, None
 
 def show_dw_top(items):
-    print(Fore.CYAN + "\nDW BG — ТОП (както е на началната)\n" + Style.RESET_ALL)
     for i, it in enumerate(items, start=1):
         print(f"{Fore.YELLOW}{i}){Style.RESET_ALL} {it['title']}")
 
@@ -173,7 +172,7 @@ def dw_top_session():
         return
 
     show_dw_top(items)
-    print("\nКоманди: [номер] отвори | R презареди | M меню | Q изход\n")
+    print("\n| R презареди | M меню | Q изход\n")
 
     while True:
         sub = input("Избор: ").strip().upper()
@@ -193,7 +192,7 @@ def dw_top_session():
                 print("Команди: R презареди | M меню | Q изход\n")
                 continue
             show_dw_top(items)
-            print("\nКоманди: [номер] отвори | R презареди | M меню | Q изход\n")
+            print("\n| R презареди | M меню | Q изход\n")
             continue
 
         if sub.isdigit():
@@ -219,9 +218,8 @@ def dw_module():
         print("3 - Иран")
         print("4 - Войната в Украйна")
         print("5 - Войната в Близкия изток")
-        print("6 - Последни видеа\n")
-        print("B - Назад към главното меню")
-        print("Q - Изход\n")
+        print("6 - Последни видеа")
+        print("\n| B - Назад към главното меню | Q изход\n")
 
         choice = input("Избор: ").strip().upper()
 
@@ -269,8 +267,8 @@ def investigative_media_module():
 
         print("\n1 - BIRD")
         print("2 - Bivol\n")
-        print("B - Назад")
-        print("Q - Изход\n")
+        print("\n| B - Назад към главното меню | Q изход\n")
+
 
         choice = input("Избор: ").strip().upper()
 
@@ -297,9 +295,9 @@ def podcasts_module():
         clear_screen()
 
         print("\n1 - Любен Жечев")
-        print("2 - Капитал\n")
-        print("B - Назад")
-        print("Q - Изход\n")
+        print("2 - Капитал")
+        print("\n| B - Назад към главното меню | Q изход\n")
+
 
         choice = input("Избор: ").strip().upper()
 
@@ -336,8 +334,9 @@ def main_menu():
 
         print("1 - Deutsche Welle BG")
         print("2 - Свободна Европа")
-        print("3 - Разследващи медии")
-        print("4 - Подкасти\n")
+        print("3 - Дневен ред")
+        print("4 - Разследващи медии")
+        print("5 - Подкасти\n")
         print("Q - Изход\n")
 
         choice = input("Избор: ").strip().upper()
@@ -350,9 +349,14 @@ def main_menu():
         new=2
         )
         elif choice == "3":
+            webbrowser.open(
+        "https://www.youtube.com/@DnevenRed/videos",
+        new=3
+        )
+        elif choice == "4":
             investigative_media_module()
 
-        elif choice == "4":
+        elif choice == "5":
             podcasts_module()
 
         elif choice == "Q":
